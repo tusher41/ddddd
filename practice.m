@@ -1,0 +1,40 @@
+% Define the numerator and denominator for H1(s)
+num_H1 = [1 0 0 1];  % Coefficients of s^3 + 1
+den_H1 = [1 0 2 0 1]; % Coefficients of s^4 + 2s^2 + 1
+
+% Define the numerator and denominator for H2(s)
+num_H2 = [4 8 10];   % Coefficients of 4s^2 + 8s + 10
+den_H2 = [2 8 18 20]; % Coefficients of 2s^3 + 8s^2 + 18s + 20
+
+% Find poles and zeros for H1(s)
+poles_H1 = roots(den_H1);  % Poles of H1(s)
+zeros_H1 = roots(num_H1);  % Zeros of H1(s)
+
+% Find poles and zeros for H2(s)
+poles_H2 = roots(den_H2);  % Poles of H2(s)
+zeros_H2 = roots(num_H2);  % Zeros of H2(s)
+
+% Display the results
+disp('Poles of H1(s):');
+disp(poles_H1);
+
+disp('Zeros of H1(s):');
+disp(zeros_H1);
+
+disp('Poles of H2(s):');
+disp(poles_H2);
+
+disp('Zeros of H2(s):');
+disp(zeros_H2);
+
+% Manually plot poles and zeros for H1(s)
+figure;
+subplot(1, 2, 1);
+zplane(num_H1, den_H1);           % Pole-zero plot for H1(z)
+title('Pole-Zero Plot for H1(z)');
+
+% Plot pole-zero map for H2(z)
+subplot(1, 2, 2);
+zplane(num_H2, den_H2);           % Pole-zero plot for H2(z)
+title('Pole-Zero Plot for H2(z)');
+
